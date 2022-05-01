@@ -199,9 +199,7 @@ export = function (name: string) {
                                 if (name && typeIs(name, "string")) {
                                   if (func) {
                                     const Button = new Instance("TextButton", Tab)
-                                    Button.Name = game
-                                      .GetService("HttpService")
-                                      .GenerateGUID(false)
+                                    Button.Name = game.GetService("HttpService").GenerateGUID(false)
                                     Button.Size = new UDim2(1, 0, 0.1, 0)
                                     Button.BackgroundColor3 = theme.Background
                                     Button.BorderSizePixel = 0
@@ -225,9 +223,7 @@ export = function (name: string) {
                                   if (func) {
                                     let State = false
                                     const Toggle = new Instance("TextButton", Tab)
-                                    Toggle.Name = game
-                                      .GetService("HttpService")
-                                      .GenerateGUID(false)
+                                    Toggle.Name = game.GetService("HttpService").GenerateGUID(false)
                                     Toggle.Size = new UDim2(1, 0, 0.1, 0)
                                     Toggle.BackgroundColor3 = theme.Background
                                     Toggle.BorderSizePixel = 0
