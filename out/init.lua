@@ -1,6 +1,13 @@
 -- Compiled with roblox-ts v1.3.3
 local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
+local defaultTheme = {
+	Background = Color3.fromRGB(26, 24, 38),
+	Background2 = Color3.fromRGB(22, 19, 32),
+	Background3 = Color3.fromRGB(30, 30, 46),
+	TextColor = Color3.fromRGB(217, 224, 238),
+	TextHightlight = Color3.fromRGB(201, 203, 255),
+}
 return function(name)
 	local _condition = name
 	if _condition ~= "" and _condition then
@@ -8,11 +15,15 @@ return function(name)
 	end
 	if _condition ~= "" and _condition then
 		return function(properties)
-			local _condition_1 = properties
-			if _condition_1 ~= 0 and (_condition_1 == _condition_1 and (_condition_1 ~= "" and _condition_1)) then
-				_condition_1 = type(properties) == "table"
-			end
-			if _condition_1 ~= 0 and (_condition_1 == _condition_1 and (_condition_1 ~= "" and _condition_1)) then
+			if properties and type(properties) == "table" then
+				local theme = defaultTheme
+				if properties.theme then
+					theme.Background = properties.theme.Background or theme.Background
+					theme.Background2 = properties.theme.Background2 or theme.Background2
+					theme.Background3 = properties.theme.Background3 or theme.Background3
+					theme.TextColor = properties.theme.TextColor or theme.TextColor
+					theme.TextHightlight = properties.theme.TextHightlight or theme.TextHightlight
+				end
 				local mt = {}
 				local ScreenGui = Instance.new("ScreenGui")
 				ScreenGui.Name = game:GetService("HttpService"):GenerateGUID(false)
@@ -26,15 +37,15 @@ return function(name)
 				if _result then
 					ScreenGui.Parent = gethui()
 				else
-					local _condition_2 = syn
-					if _condition_2 then
+					local _condition_1 = syn
+					if _condition_1 then
 						local _result_1 = syn
 						if _result_1 ~= nil then
 							_result_1 = _result_1.protect_gui
 						end
-						_condition_2 = _result_1
+						_condition_1 = _result_1
 					end
-					if _condition_2 then
+					if _condition_1 then
 						ScreenGui.Parent = CoreGui
 						syn.protect_gui(ScreenGui)
 					else
@@ -50,14 +61,14 @@ return function(name)
 				Frame.Size = UDim2.new(0.25, 0, 0.45, 0)
 				Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
 				Frame.AnchorPoint = Vector2.new(0.5, 0.5)
-				Frame.BackgroundColor3 = Color3.fromRGB(26, 24, 38)
+				Frame.BackgroundColor3 = theme.Background
 				Frame.BorderSizePixel = 0
 				local Sidebar = Instance.new("Frame", Frame)
 				Sidebar.Name = game:GetService("HttpService"):GenerateGUID(false)
 				Sidebar.Size = UDim2.new(0.05, 0, 0.9, 0)
 				Sidebar.Position = UDim2.new(0, 0, 0.9, 0)
 				Sidebar.AnchorPoint = Vector2.new(0, 0.9)
-				Sidebar.BackgroundColor3 = Color3.fromRGB(22, 19, 32)
+				Sidebar.BackgroundColor3 = theme.Background2
 				Sidebar.BorderSizePixel = 0
 				Sidebar.MouseEnter:Connect(function()
 					local _exp = Sidebar:GetChildren()
@@ -92,7 +103,7 @@ return function(name)
 				local Topbar = Instance.new("Frame", Frame)
 				Topbar.Name = game:GetService("HttpService"):GenerateGUID(false)
 				Topbar.Size = UDim2.new(1, 0, 0.1, 0)
-				Topbar.BackgroundColor3 = Color3.fromRGB(22, 19, 32)
+				Topbar.BackgroundColor3 = theme.Background2
 				Topbar.BorderSizePixel = 0
 				local Title = Instance.new("TextLabel", Topbar)
 				Title.Name = game:GetService("HttpService"):GenerateGUID(false)
@@ -103,7 +114,7 @@ return function(name)
 				Title.TextXAlignment = Enum.TextXAlignment.Left
 				Title.Text = name
 				Title.TextSize = 25
-				Title.TextColor3 = Color3.fromRGB(217, 224, 238)
+				Title.TextColor3 = theme.TextColor
 				local TitlePadding = Instance.new("UIPadding", Title)
 				TitlePadding.Name = game:GetService("HttpService"):GenerateGUID(false)
 				TitlePadding.PaddingLeft = UDim.new(0, 10)
@@ -111,11 +122,11 @@ return function(name)
 				TabFolder.Name = game:GetService("HttpService"):GenerateGUID(false)
 				setmetatable(mt, {
 					__index = function(_, key)
-						local _condition_2 = key
-						if _condition_2 ~= 0 and (_condition_2 == _condition_2 and (_condition_2 ~= "" and _condition_2)) then
-							_condition_2 = type(key) == "string"
+						local _condition_1 = key
+						if _condition_1 ~= 0 and (_condition_1 == _condition_1 and (_condition_1 ~= "" and _condition_1)) then
+							_condition_1 = type(key) == "string"
 						end
-						if _condition_2 ~= 0 and (_condition_2 == _condition_2 and (_condition_2 ~= "" and _condition_2)) then
+						if _condition_1 ~= 0 and (_condition_1 == _condition_1 and (_condition_1 ~= "" and _condition_1)) then
 							repeat
 								if key == "Parent" then
 									return ScreenGui.Parent
@@ -134,7 +145,7 @@ return function(name)
 										Tab.Position = UDim2.new(1, 0, 1, 0)
 										Tab.AnchorPoint = Vector2.new(1, 1)
 										Tab.BorderSizePixel = 0
-										Tab.BackgroundColor3 = Color3.fromRGB(30, 30, 46)
+										Tab.BackgroundColor3 = theme.Background3
 										Tab.Visible = false
 										local UIListLayout = Instance.new("UIListLayout", Tab)
 										UIListLayout.Name = game:GetService("HttpService"):GenerateGUID()
@@ -142,24 +153,24 @@ return function(name)
 										local TabSelect = Instance.new("TextButton", Sidebar)
 										TabSelect.Name = game:GetService("HttpService"):GenerateGUID(false)
 										TabSelect.Size = UDim2.new(1, 0, 0.1, 0)
-										TabSelect.BackgroundColor3 = Color3.fromRGB(26, 24, 38)
+										TabSelect.BackgroundColor3 = theme.Background
 										TabSelect.BorderSizePixel = 0
 										TabSelect.Font = Enum.Font.GothamBlack
-										TabSelect.TextColor3 = Color3.fromRGB(217, 224, 238)
+										TabSelect.TextColor3 = theme.TextColor
 										TabSelect.Text = name
 										TabSelect.TextSize = 15
 										TabSelect.TextWrapped = true
 										TabSelect.Visible = false
 										TabSelect.MouseEnter:Connect(function()
 											TweenService:Create(TabSelect, TweenInfo.new(0.5), {
-												BackgroundColor3 = Color3.fromRGB(30, 30, 46),
-												TextColor3 = Color3.fromRGB(201, 203, 255),
+												BackgroundColor3 = theme.Background3,
+												TextColor3 = theme.TextHightlight,
 											}):Play()
 										end)
 										TabSelect.MouseLeave:Connect(function()
 											TweenService:Create(TabSelect, TweenInfo.new(0.5), {
-												BackgroundColor3 = Color3.fromRGB(26, 24, 38),
-												TextColor3 = Color3.fromRGB(217, 224, 238),
+												BackgroundColor3 = theme.Background,
+												TextColor3 = theme.TextColor,
 											}):Play()
 										end)
 										TabSelect.MouseButton1Click:Connect(function()
@@ -187,20 +198,20 @@ return function(name)
 														end
 														if key == "Button" then
 															return function(name)
-																local _condition_3 = name
-																if _condition_3 ~= "" and _condition_3 then
-																	_condition_3 = type(name) == "string"
+																local _condition_2 = name
+																if _condition_2 ~= "" and _condition_2 then
+																	_condition_2 = type(name) == "string"
 																end
-																if _condition_3 ~= "" and _condition_3 then
+																if _condition_2 ~= "" and _condition_2 then
 																	return function(func)
 																		if func then
 																			local Button = Instance.new("TextButton", Tab)
 																			Button.Name = game:GetService("HttpService"):GenerateGUID(false)
 																			Button.Size = UDim2.new(1, 0, 0.1, 0)
-																			Button.BackgroundColor3 = Color3.fromRGB(26, 24, 38)
+																			Button.BackgroundColor3 = theme.Background
 																			Button.BorderSizePixel = 0
 																			Button.Font = Enum.Font.GothamBlack
-																			Button.TextColor3 = Color3.fromRGB(217, 224, 238)
+																			Button.TextColor3 = theme.TextColor
 																			Button.Text = name
 																			Button.TextSize = 15
 																			Button.MouseButton1Click:Connect(func)
@@ -215,21 +226,21 @@ return function(name)
 														end
 														if key == "Toggle" then
 															return function(name)
-																local _condition_3 = name
-																if _condition_3 ~= "" and _condition_3 then
-																	_condition_3 = type(name) == "string"
+																local _condition_2 = name
+																if _condition_2 ~= "" and _condition_2 then
+																	_condition_2 = type(name) == "string"
 																end
-																if _condition_3 ~= "" and _condition_3 then
+																if _condition_2 ~= "" and _condition_2 then
 																	return function(func)
 																		if func then
 																			local State = false
 																			local Toggle = Instance.new("TextButton", Tab)
 																			Toggle.Name = game:GetService("HttpService"):GenerateGUID(false)
 																			Toggle.Size = UDim2.new(1, 0, 0.1, 0)
-																			Toggle.BackgroundColor3 = Color3.fromRGB(26, 24, 38)
+																			Toggle.BackgroundColor3 = theme.Background
 																			Toggle.BorderSizePixel = 0
 																			Toggle.Font = Enum.Font.GothamBlack
-																			Toggle.TextColor3 = Color3.fromRGB(217, 224, 238)
+																			Toggle.TextColor3 = theme.TextColor
 																			Toggle.Text = name
 																			Toggle.TextSize = 15
 																			-- Checkbox Unchecked: https://www.roblox.com/library/9513649315/ic-fluent-checkbox-unchecked-24-filled
