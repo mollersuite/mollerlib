@@ -55,19 +55,19 @@ local UI = library "mollerlib" {}
 local Tab = UI.Tab "Buttons"
 local Tab2 = UI.Tab "Toggles"
 
-local Button1 = Tab.Button "Button 1" (function ()
+local Button1 = Tab.Button("Button 1", function ()
     print("Button 1 has spoken!")
 end)
 
-local Button2 = Tab.Button "Button 2" (function ()
+local Button2 = Tab.Button("Button 2", function ()
     print("Button 2 has spoken!")
 end)
 
-local Toggle1 = Tab2.Toggle "Toggle 1" (function (state)
+local Toggle1 = Tab2.Toggle("Toggle 1", function (state)
     print("Toggle 1 is " .. if state then "toggled!" else "not toggled!")
 end)
 
-local Toggle2 = Tab2.Toggle "Toggle 2" (function (state)
+local Toggle2 = Tab2.Toggle("Toggle 2", function (state)
     print("Toggle 2 is " .. if state then "toggled!" else "not toggled!")
 end)
 ```
