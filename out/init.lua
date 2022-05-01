@@ -197,27 +197,25 @@ return function(name)
 															return Tab
 														end
 														if key == "Button" then
-															return function(name)
+															return function(name, func)
 																local _condition_2 = name
 																if _condition_2 ~= "" and _condition_2 then
 																	_condition_2 = type(name) == "string"
 																end
 																if _condition_2 ~= "" and _condition_2 then
-																	return function(func)
-																		if func then
-																			local Button = Instance.new("TextButton", Tab)
-																			Button.Name = game:GetService("HttpService"):GenerateGUID(false)
-																			Button.Size = UDim2.new(1, 0, 0.1, 0)
-																			Button.BackgroundColor3 = theme.Background
-																			Button.BorderSizePixel = 0
-																			Button.Font = Enum.Font.GothamBlack
-																			Button.TextColor3 = theme.TextColor
-																			Button.Text = name
-																			Button.TextSize = 15
-																			Button.MouseButton1Click:Connect(func)
-																		else
-																			error("Button needs a function")
-																		end
+																	if func then
+																		local Button = Instance.new("TextButton", Tab)
+																		Button.Name = game:GetService("HttpService"):GenerateGUID(false)
+																		Button.Size = UDim2.new(1, 0, 0.1, 0)
+																		Button.BackgroundColor3 = theme.Background
+																		Button.BorderSizePixel = 0
+																		Button.Font = Enum.Font.GothamBlack
+																		Button.TextColor3 = theme.TextColor
+																		Button.Text = name
+																		Button.TextSize = 15
+																		Button.MouseButton1Click:Connect(func)
+																	else
+																		error("Button needs a function")
 																	end
 																else
 																	error("No name provided")
@@ -225,46 +223,44 @@ return function(name)
 															end
 														end
 														if key == "Toggle" then
-															return function(name)
+															return function(name, func)
 																local _condition_2 = name
 																if _condition_2 ~= "" and _condition_2 then
 																	_condition_2 = type(name) == "string"
 																end
 																if _condition_2 ~= "" and _condition_2 then
-																	return function(func)
-																		if func then
-																			local State = false
-																			local Toggle = Instance.new("TextButton", Tab)
-																			Toggle.Name = game:GetService("HttpService"):GenerateGUID(false)
-																			Toggle.Size = UDim2.new(1, 0, 0.1, 0)
-																			Toggle.BackgroundColor3 = theme.Background
-																			Toggle.BorderSizePixel = 0
-																			Toggle.Font = Enum.Font.GothamBlack
-																			Toggle.TextColor3 = theme.TextColor
-																			Toggle.Text = name
-																			Toggle.TextSize = 15
-																			-- Checkbox Unchecked: https://www.roblox.com/library/9513649315/ic-fluent-checkbox-unchecked-24-filled
-																			-- Checkbox Checked: https://www.roblox.com/library/9513650298/ic-fluent-checkbox-checked-24-filled
-																			local Icon = Instance.new("ImageLabel", Toggle)
-																			Icon.Name = game:GetService("HttpService"):GenerateGUID(false)
-																			Icon.Size = UDim2.new(0.07, 0, 1, 0)
-																			Icon.Position = UDim2.new(1, 0, 1, 0)
-																			Icon.AnchorPoint = Vector2.new(1, 1)
-																			Icon.BackgroundTransparency = 1
-																			Icon.Image = "rbxassetid://9513649315"
-																			Icon.BorderSizePixel = 0
-																			Toggle.MouseButton1Click:Connect(function()
-																				State = not State
-																				if State == false then
-																					Icon.Image = "rbxassetid://9513649315"
-																				else
-																					Icon.Image = "rbxassetid://9513650298"
-																				end
-																				func(State)
-																			end)
-																		else
-																			error("Toggle needs a function")
-																		end
+																	if func then
+																		local State = false
+																		local Toggle = Instance.new("TextButton", Tab)
+																		Toggle.Name = game:GetService("HttpService"):GenerateGUID(false)
+																		Toggle.Size = UDim2.new(1, 0, 0.1, 0)
+																		Toggle.BackgroundColor3 = theme.Background
+																		Toggle.BorderSizePixel = 0
+																		Toggle.Font = Enum.Font.GothamBlack
+																		Toggle.TextColor3 = theme.TextColor
+																		Toggle.Text = name
+																		Toggle.TextSize = 15
+																		-- Checkbox Unchecked: https://www.roblox.com/library/9513649315/ic-fluent-checkbox-unchecked-24-filled
+																		-- Checkbox Checked: https://www.roblox.com/library/9513650298/ic-fluent-checkbox-checked-24-filled
+																		local Icon = Instance.new("ImageLabel", Toggle)
+																		Icon.Name = game:GetService("HttpService"):GenerateGUID(false)
+																		Icon.Size = UDim2.new(0.07, 0, 1, 0)
+																		Icon.Position = UDim2.new(1, 0, 1, 0)
+																		Icon.AnchorPoint = Vector2.new(1, 1)
+																		Icon.BackgroundTransparency = 1
+																		Icon.Image = "rbxassetid://9513649315"
+																		Icon.BorderSizePixel = 0
+																		Toggle.MouseButton1Click:Connect(function()
+																			State = not State
+																			if State == false then
+																				Icon.Image = "rbxassetid://9513649315"
+																			else
+																				Icon.Image = "rbxassetid://9513650298"
+																			end
+																			func(State)
+																		end)
+																	else
+																		error("Toggle needs a function")
 																	end
 																else
 																	error("No name provided")

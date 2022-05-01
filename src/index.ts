@@ -195,26 +195,24 @@ export = function (name: string) {
                               return Tab
                             }
                             case "Button": {
-                              return function (name: string) {
+                              return function (name: string, func: Callback | void) {
                                 if (name && typeIs(name, "string")) {
-                                  return function (func: Callback | void) {
-                                    if (func) {
-                                      const Button = new Instance("TextButton", Tab)
-                                      Button.Name = game
-                                        .GetService("HttpService")
-                                        .GenerateGUID(false)
-                                      Button.Size = new UDim2(1, 0, 0.1, 0)
-                                      Button.BackgroundColor3 = theme.Background
-                                      Button.BorderSizePixel = 0
-                                      Button.Font = Enum.Font.GothamBlack
-                                      Button.TextColor3 = theme.TextColor
-                                      Button.Text = name
-                                      Button.TextSize = 15
+                                  if (func) {
+                                    const Button = new Instance("TextButton", Tab)
+                                    Button.Name = game
+                                      .GetService("HttpService")
+                                      .GenerateGUID(false)
+                                    Button.Size = new UDim2(1, 0, 0.1, 0)
+                                    Button.BackgroundColor3 = theme.Background
+                                    Button.BorderSizePixel = 0
+                                    Button.Font = Enum.Font.GothamBlack
+                                    Button.TextColor3 = theme.TextColor
+                                    Button.Text = name
+                                    Button.TextSize = 15
 
-                                      Button.MouseButton1Click.Connect(func)
-                                    } else {
-                                      throw "Button needs a function"
-                                    }
+                                    Button.MouseButton1Click.Connect(func)
+                                  } else {
+                                    throw "Button needs a function"
                                   }
                                 } else {
                                   throw "No name provided"
@@ -222,46 +220,44 @@ export = function (name: string) {
                               }
                             }
                             case "Toggle": {
-                              return function (name: string) {
+                              return function (name: string, func: Callback | void) {
                                 if (name && typeIs(name, "string")) {
-                                  return function (func: Callback | void) {
-                                    if (func) {
-                                      let State = false
-                                      const Toggle = new Instance("TextButton", Tab)
-                                      Toggle.Name = game
-                                        .GetService("HttpService")
-                                        .GenerateGUID(false)
-                                      Toggle.Size = new UDim2(1, 0, 0.1, 0)
-                                      Toggle.BackgroundColor3 = theme.Background
-                                      Toggle.BorderSizePixel = 0
-                                      Toggle.Font = Enum.Font.GothamBlack
-                                      Toggle.TextColor3 = theme.TextColor
-                                      Toggle.Text = name
-                                      Toggle.TextSize = 15
+                                  if (func) {
+                                    let State = false
+                                    const Toggle = new Instance("TextButton", Tab)
+                                    Toggle.Name = game
+                                      .GetService("HttpService")
+                                      .GenerateGUID(false)
+                                    Toggle.Size = new UDim2(1, 0, 0.1, 0)
+                                    Toggle.BackgroundColor3 = theme.Background
+                                    Toggle.BorderSizePixel = 0
+                                    Toggle.Font = Enum.Font.GothamBlack
+                                    Toggle.TextColor3 = theme.TextColor
+                                    Toggle.Text = name
+                                    Toggle.TextSize = 15
 
-                                      // Checkbox Unchecked: https://www.roblox.com/library/9513649315/ic-fluent-checkbox-unchecked-24-filled
-                                      // Checkbox Checked: https://www.roblox.com/library/9513650298/ic-fluent-checkbox-checked-24-filled
+                                    // Checkbox Unchecked: https://www.roblox.com/library/9513649315/ic-fluent-checkbox-unchecked-24-filled
+                                    // Checkbox Checked: https://www.roblox.com/library/9513650298/ic-fluent-checkbox-checked-24-filled
 
-                                      const Icon = new Instance("ImageLabel", Toggle)
-                                      Icon.Name = game.GetService("HttpService").GenerateGUID(false)
-                                      Icon.Size = new UDim2(0.07, 0, 1, 0)
-                                      Icon.Position = new UDim2(1, 0, 1, 0)
-                                      Icon.AnchorPoint = new Vector2(1, 1)
-                                      Icon.BackgroundTransparency = 1
-                                      Icon.Image = "rbxassetid://9513649315"
-                                      Icon.BorderSizePixel = 0
-                                      Toggle.MouseButton1Click.Connect(() => {
-                                        State = !State
-                                        if (State === false) {
-                                          Icon.Image = "rbxassetid://9513649315"
-                                        } else {
-                                          Icon.Image = "rbxassetid://9513650298"
-                                        }
-                                        func(State)
-                                      })
-                                    } else {
-                                      throw "Toggle needs a function"
-                                    }
+                                    const Icon = new Instance("ImageLabel", Toggle)
+                                    Icon.Name = game.GetService("HttpService").GenerateGUID(false)
+                                    Icon.Size = new UDim2(0.07, 0, 1, 0)
+                                    Icon.Position = new UDim2(1, 0, 1, 0)
+                                    Icon.AnchorPoint = new Vector2(1, 1)
+                                    Icon.BackgroundTransparency = 1
+                                    Icon.Image = "rbxassetid://9513649315"
+                                    Icon.BorderSizePixel = 0
+                                    Toggle.MouseButton1Click.Connect(() => {
+                                      State = !State
+                                      if (State === false) {
+                                        Icon.Image = "rbxassetid://9513649315"
+                                      } else {
+                                        Icon.Image = "rbxassetid://9513650298"
+                                      }
+                                      func(State)
+                                    })
+                                  } else {
+                                    throw "Toggle needs a function"
                                   }
                                 } else {
                                   throw "No name provided"
