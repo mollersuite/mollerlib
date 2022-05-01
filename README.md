@@ -20,28 +20,17 @@ local UI = library "UIName" {}
 ## Tabs
 
 ```lua
-local library = loadstring(game:HttpGet 'https://raw.githubusercontent.com/mollersuite/mollerlib/main/out/init.lua')
-
-local UI = library "UIName" {}
-
 local Tab = UI.Tab "TabName"
 ```
 
 ## Buttons
 
 ```lua
-local library = loadstring(game:HttpGet 'https://raw.githubusercontent.com/mollersuite/mollerlib/main/out/init.lua')
-
-local UI = library "UIName" {}
-
-local Tab = UI.Tab "TabName"
-
-local Button = Tab.Button "Cool Button" (function ()
-    print("The Button has spoken!")
+local Toggle = Tab.Button("Button", function()
+    print("Button pressed!")
 end)
-
-local Toggle = Tab.Toggle "Cool Toggle" (function (state)
-    print("The button is " .. if state then "toggled!" else "not toggled!")
+local Toggle = Tab.Toggle("Toggle", function(state)
+    print("Switch is " .. if state then "toggled!" else "not toggled!")
 end)
 ```
 
