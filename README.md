@@ -26,7 +26,7 @@ local Tab = UI.Tab "TabName"
 ## Buttons
 
 ```lua
-local Toggle = Tab.Button("Button", function()
+local Button = Tab.Button("Button", function()
     print("Button pressed!")
 end)
 local Toggle = Tab.Toggle("Toggle", function(state)
