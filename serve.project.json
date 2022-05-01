@@ -1,0 +1,17 @@
+{
+	"name": "Testing-MollerLib",
+	"globIgnorePaths": [
+		"**/package.json",
+		"**/tsconfig.json",
+		"**/LICENSE.txt"
+	],
+	"tree": {
+		"$className": "DataModel",
+		"ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+			"lib": {
+        "$path": "out"
+      }
+		}
+	}
+}

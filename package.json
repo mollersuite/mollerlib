@@ -1,0 +1,47 @@
+{
+  "name": "mollerlib",
+  "version": "1.0.0",
+  "description": "Yet another UI lib",
+  "main": "index.js",
+  "scripts": {
+    "build": "rbxtsc",
+    "watch": "rbxtsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mollersuite/mollerlib.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mollersuite/mollerlib/issues"
+  },
+  "homepage": "https://github.com/mollersuite/mollerlib#readme",
+  "devDependencies": {
+    "@rbxts/compiler-types": "^1.3.3-types.1",
+    "@rbxts/types": "^1.0.586",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.4"
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "embeddedLanguageFormatting": "auto",
+    "endOfLine": "lf",
+    "htmlWhitespaceSensitivity": "css",
+    "insertPragma": false,
+    "bracketSameLine": true,
+    "jsxSingleQuote": false,
+    "printWidth": 100,
+    "proseWrap": "always",
+    "quoteProps": "as-needed",
+    "requirePragma": false,
+    "semi": false,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false,
+    "vueIndentScriptAndStyle": false
+  }
+}

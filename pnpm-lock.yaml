@@ -1,0 +1,35 @@
+lockfileVersion: 5.3
+
+specifiers:
+  '@rbxts/compiler-types': ^1.3.3-types.1
+  '@rbxts/types': ^1.0.586
+  prettier: ^2.6.2
+  typescript: ^4.6.4
+
+devDependencies:
+  '@rbxts/compiler-types': 1.3.3-types.1
+  '@rbxts/types': 1.0.586
+  prettier: 2.6.2
+  typescript: 4.6.4
+
+packages:
+
+  /@rbxts/compiler-types/1.3.3-types.1:
+    resolution: {integrity: sha512-iWeioe5WziBTnY+FIT7aQ5bimlw81PYZ5d9WO0h1kX3joEigXPQpn2yHGRxzrqIssqQr47Y6fwknklaaQ6IPMQ==}
+    dev: true
+
+  /@rbxts/types/1.0.586:
+    resolution: {integrity: sha512-+KqviowpIdn3adLViXVUPaH2LqkgSV3xy+lM9bCoi9Gj3y3k+t8J2FG/ClNiUHxWTv/8vYzitagAbwUwePkt7g==}
+    dev: true
+
+  /prettier/2.6.2:
+    resolution: {integrity: sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  /typescript/4.6.4:
+    resolution: {integrity: sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
