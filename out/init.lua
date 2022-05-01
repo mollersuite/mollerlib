@@ -66,8 +66,8 @@ return function(name)
 				local Sidebar = Instance.new("Frame", Frame)
 				Sidebar.Name = game:GetService("HttpService"):GenerateGUID(false)
 				Sidebar.Size = UDim2.new(0.05, 0, 0.9, 0)
-				Sidebar.Position = UDim2.new(0, 0, 0.9, 0)
-				Sidebar.AnchorPoint = Vector2.new(0, 0.9)
+				Sidebar.Position = UDim2.new(0, 0, 1, 0)
+				Sidebar.AnchorPoint = Vector2.new(0, 1)
 				Sidebar.BackgroundColor3 = theme.Background2
 				Sidebar.BorderSizePixel = 0
 				Sidebar.MouseEnter:Connect(function()

@@ -67,8 +67,8 @@ export = function (name: string) {
         const Sidebar = new Instance("Frame", Frame)
         Sidebar.Name = game.GetService("HttpService").GenerateGUID(false)
         Sidebar.Size = new UDim2(0.05, 0, 0.9, 0)
-        Sidebar.Position = new UDim2(0, 0, 0.9, 0)
-        Sidebar.AnchorPoint = new Vector2(0, 0.9)
+        Sidebar.Position = new UDim2(0, 0, 1, 0)
+        Sidebar.AnchorPoint = new Vector2(0, 1)
         Sidebar.BackgroundColor3 = theme.Background2
         Sidebar.BorderSizePixel = 0
 
