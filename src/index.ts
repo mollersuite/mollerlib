@@ -58,7 +58,7 @@ export = function (name: string) {
         }
         const Frame = new Instance("Frame", ScreenGui)
         Frame.Name = game.GetService("HttpService").GenerateGUID(false)
-        Frame.Size = new UDim2(0.25, 0, 0.45, 0)
+        Frame.Size = new UDim2(0.25, 0, 0.25, 0)
         Frame.Position = new UDim2(0.5, 0, 0.5, 0)
         Frame.AnchorPoint = new Vector2(0.5, 0.5)
         Frame.BackgroundColor3 = theme.Background

@@ -58,7 +58,7 @@ return function(name)
 				end
 				local Frame = Instance.new("Frame", ScreenGui)
 				Frame.Name = game:GetService("HttpService"):GenerateGUID(false)
-				Frame.Size = UDim2.new(0.25, 0, 0.45, 0)
+				Frame.Size = UDim2.new(0.25, 0, 0.25, 0)
 				Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
 				Frame.AnchorPoint = Vector2.new(0.5, 0.5)
 				Frame.BackgroundColor3 = theme.Background
